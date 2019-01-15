@@ -13,9 +13,9 @@ uint8_t BME_MISO;
 uint8_t BME_MOSI;
 uint8_t BME_CS;
 
-Adafruit_BME680 bme; // I2C
+//Adafruit_BME680 bme; // I2C
 //Adafruit_BME680 bme(BME_CS); // hardware SPI
-//Adafruit_BME680 bme(BME_CS, BME_MOSI, BME_MISO, BME_SCK); // software SPI
+Adafruit_BME680 bme(BME_CS, BME_MOSI, BME_MISO, BME_SCK); // software SPI
 
 unsigned long delayTime;
 
@@ -24,6 +24,9 @@ inventoneBME680::inventoneBME680 (uint8_t sck, uint8_t miso, uint8_t mosi, uint8
     BME_MISO = miso;
     BME_MOSI = mosi;
     BME_CS = cs;
+
+    Adafruit_BME680 _bme(BME_CS, BME_MOSI, BME_MISO, BME_SCK);
+    bme = _bme;
 }
 
 bool inventoneBME680::setupBME680() {
