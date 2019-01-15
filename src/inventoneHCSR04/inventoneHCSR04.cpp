@@ -3,15 +3,16 @@
 
 #include "HCSR04.h"
 
-int _trigPin;
-int _echoPin;
+int dumTrigPin;
+int dumEchoPin;
+
+HCSR04 sensor(dumTrigPin, dumEchoPin);
 
 inventoneHCSR04::inventoneHCSR04(int trigPin, int echoPin){
-    _trigPin = trigPin;
-    _echoPin = echoPin;
+    HCSR04 _sensor(trigPin, echoPin);
+    sensor = _sensor;
 }
 
-HCSR04 sensor(_trigPin, _echoPin);
 
 float inventoneHCSR04::getDistanceIn(char distUnit[]){
     
