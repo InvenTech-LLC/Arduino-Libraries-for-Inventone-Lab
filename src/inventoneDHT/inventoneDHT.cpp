@@ -6,13 +6,13 @@
 int _pin;
 int _dhtType;
 
+DHT sensor(_pin, _dhtType);
+
 //Use 11 for DHT11 and 22 for DHT22
 inventoneDHT::inventoneDHT(uint8_t pin, uint8_t dhtType){
-    _pin = pin;
-    _dhtType = dhtType;
+    DHT _sensor(pin, dhtType);
+    sensor = _sensor;
 }
-
-DHT sensor(_pin, _dhtType);
 
 bool inventoneDHT::setupDHT(){
     sensor.begin();

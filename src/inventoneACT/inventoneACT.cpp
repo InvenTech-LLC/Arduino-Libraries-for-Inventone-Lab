@@ -1,13 +1,7 @@
 #include "inventoneACT.h"
 #include "Servo.h"
 
-// #define GREATERTHAN >
-// #define GREATERTHANOREQUAL >=
-// #define EQUALTO ==
-// #define NOTEQUALTO !=
-// #define LESSTHAN <
-// #define LESSTHANOREQUAL <=
-
+#include "Arduino.h"
 
 Servo myservo;
 
@@ -82,8 +76,8 @@ float inventoneACT::multiplex(float data1, float data2, char *condition) {
 
 }
 
-float inventoneACT::pass (float input, bool boolean) {
-    if (boolean) {
+float inventoneACT::pass (float input, bool shouldPass) {
+    if (shouldPass) {
         return input;
     }
     else return 0;
@@ -118,31 +112,34 @@ bool inventoneACT::threshold(float data1, float data2, char *condition) {
 }
 
 int inventoneACT::map(long data, long in_min, long in_max, long out_min, long out_max) {
-   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+   return (data - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
 char* inventoneACT::string(char *text) {
     return text;
 }
 
-char* inventoneACT::buildText(char *text1, float x, char *text2) {
-    char *string;
-    sprintf (string, "%s %d %s", text1, x, text2);
-    return string;
+String inventoneACT::buildText(String text1, float x, String text2) {
+    String result;
+    result = text1;
+    result += x;
+    result += text2;
+
+    return result;
 }
 
 int inventoneACT::analog_read(uint8_t pin) {
     return analogRead(pin);
 }
 
-void inventoneACT::analog_write(uint8t_t pin) {
-    analogWrite(pin);
+void inventoneACT::analog_write(uint8_t pin, int value) {
+    analogWrite(pin, value);
 }
 
 bool inventoneACT::digital_read(uint8_t pin) {
     return digitalRead(pin);
 }
 
-void inventoneACT::digital_write(uint8_t pin) {
-    digitalWrite(pin);
+void inventoneACT::digital_write(uint8_t pin, int value) {
+    digitalWrite(pin, value);
 }

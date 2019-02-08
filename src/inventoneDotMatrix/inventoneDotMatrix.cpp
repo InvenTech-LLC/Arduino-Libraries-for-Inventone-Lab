@@ -4,7 +4,7 @@
 #include "MaxMatrix.h"
 #include "avr/pgmspace.h"
 
-#define VOID 0
+//#define VOID 0
 
 char CH[] = {
 3, 8, B00000000, B00000000, B00000000, B00000000, B00000000, // space

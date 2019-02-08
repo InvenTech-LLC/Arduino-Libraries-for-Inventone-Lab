@@ -17,15 +17,15 @@ class inventoneACT
         void rotate(int speed);
         void turn(int degrees);
         float multiplex(float data1, float data2, char *conditon);
-        float pass(float input, bool boolean);
+        float pass(float input, bool shouldPass);
         bool threshold(float data1, float data2, char *condition);
-        int map(long data, int in_min, int in_max, int out_min, int out_max); 
+        int map(long data, long in_min, long in_max, long out_min, long out_max); 
         char *string(char *text);
-        char *buildText(char *text1, float x, char *text2);
+        String buildText(String text1, float x, String text2);
         int analog_read(uint8_t pin);
-        void analog_write(uint8_t pin);
+        void analog_write(uint8_t pin, int value);
         bool digital_read(uint8_t pin);
-        void digital_write(uint8_t pin);
+        void digital_write(uint8_t pin, int value);
     private:
         uint8_t _pin;
 };
