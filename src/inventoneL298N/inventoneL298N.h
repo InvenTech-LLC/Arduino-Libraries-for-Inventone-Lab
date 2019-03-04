@@ -1,7 +1,9 @@
 #ifndef inventoneL298N_h
 #define inventoneL298N_h
-
 #include "Arduino.h"
+
+#define CLOCKWISE true
+#define ANTICLOCKWISE false
 
 class inventoneL298N
 {

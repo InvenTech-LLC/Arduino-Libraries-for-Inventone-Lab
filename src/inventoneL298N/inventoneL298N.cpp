@@ -1,8 +1,5 @@
 #include "inventoneL298N.h"
 
-#define CLOCKWISE true
-#define ANTICLOCKWISE false
-
 inventoneL298N::inventoneL298N (uint8_t enPin, uint8_t IN1, uint8_t IN2){
     pinMode (enPin, OUTPUT);
     pinMode (IN1, OUTPUT);
